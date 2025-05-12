@@ -176,6 +176,40 @@ public:
 
 
 
+    static void delete_user_by_pinfl(const string& target_pinfl) {
+        ifstream file("accounts.txt");
+        string lines[1000]; // массив строк (до 1000 пользователей)
+        int count = 0;
+
+        if (!file.is_open()) {
+            cout << "Cannot open accounts.txt" << endl;
+            return;
+        }
+
+        string pinfl, password, name, surname;
+        int role;
+        while (file >> pinfl >> password >> name >> surname >> role) {
+            if (pinfl != target_pinfl) {
+                lines[count] = pinfl + " " + password + " " + name + " " + surname + " " + to_string(role);
+                count++;
+            }
+        }
+        file.close();
+
+        ofstream out("accounts.txt"); // перезаписываем весь файл
+        for (int i = 0; i < count; ++i) {
+            out << lines[i] << endl;
+        }
+        out.close();
+
+        cout << "User with PINFL " << target_pinfl << " deleted (if existed)." << endl;
+    }
+
+
+
+
+
+
     // Added method to save medical history to file
     void save_to_file() {
         string filename = patient_name + "_" + patient_surname + ".txt";
