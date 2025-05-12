@@ -119,6 +119,7 @@ public:
                 if (stored_pinfl == PINFL) {
                     name = stored_name;
                     surname = stored_surname;
+                    number = stored_number;
                     return true;
                 }
             }

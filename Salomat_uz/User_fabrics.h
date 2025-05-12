@@ -28,7 +28,7 @@ public:
     User* create_user(const string& name, const string& surname, const string& password) override {
 
       
-        return new Doctor(name, surname, password);
+        return new Doctor(name, surname, password );
 
     };
 

@@ -246,6 +246,33 @@ public:
                 }
             }
 
+
+
+            
+            string confirmation_code = "3462";
+            string confirmation_code_entered;
+
+            int attemps = 0;
+            while (true) {
+
+                if (attemps > 3) {
+                    cout << "Number of atemps is limeted > please try again later" << endl;
+                    return nullptr;
+                }
+                cout << "Confirmation code was send on number " << number << endl;
+                cout << "Enter confirmation code " << confirmation_code << endl;
+                cin >> confirmation_code_entered;
+                if (confirmation_code_entered != confirmation_code) {
+                    cout << "Incorrect confirmation code\n Code was sent again" << endl;
+                    attemps++;
+                    continue;
+                }
+                break;
+            }
+
+
+
+
             cout << "Now you need to set up your passwort" << endl;
 
             while (true) {
