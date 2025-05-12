@@ -161,13 +161,13 @@ public:
                        
 
 
-                    if (Validator::user_exists(pinfl)) {
+                    if (!Validator::user_exists(pinfl)) {
 
                         if (file.is_open()) {
                             file << pinfl << " " << "_" << " " << p_name << " " << p_surname << " " << 1 << endl;
                         }
 
-                        break;
+                       
 
                     }
                     }

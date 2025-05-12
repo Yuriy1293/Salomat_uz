@@ -30,3 +30,35 @@ Complaiins: jdsdjssjs
 Diagnosis: dsssd
 Treatment: sdssdsdsdgdfds
 
+=== Anketa ===
+Date: 2025:5:12
+Time: 17:8:52
+Doctor: Anna Brown
+Complaiins:   Popov          Yuri
+Diagnosis: лл
+Treatment: л
+
+=== Anketa ===
+Date: 2025:5:12
+Time: 17:10:39
+Doctor: Anna Brown
+Complaiins: saaasa
+Diagnosis: saaaa
+Treatment: sasaa
+
+=== Anketa ===
+Date: 2025:5:12
+Time: 17:24:7
+Doctor: Anna Brown
+Complaiins: sdsds
+Diagnosis: dsdsss
+Treatment: dsdsf
+
+=== Anketa ===
+Date: 2025:5:12
+Time: 17:24:42
+Doctor: Anna Brown
+Complaiins: sssdsdss
+Diagnosis: sddsd
+Treatment: sdsds
+
