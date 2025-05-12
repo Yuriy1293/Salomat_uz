@@ -136,7 +136,7 @@ class Registration {
 
 protected:
     string name, surname, password, PINFL;
-
+    string number;
 
 public:
 
@@ -206,7 +206,7 @@ public:
                 continue;
             }
 
-            if (!Validator::user_exists_in_govermental_database(PINFL, name, surname)) {
+            if (!Validator::user_exists_in_govermental_database(PINFL, name, surname , number)) {
                 cout << "This PINFL does not exist in the governmental database\n";
                 continue;
             }

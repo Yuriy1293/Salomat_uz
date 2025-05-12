@@ -73,6 +73,7 @@ class DoctorMenu : public Menu {
 private:
     string doctor_name;
     string doctor_surname;
+    string number;
 
 public:
     // Передаём имя и фамилию доктора
@@ -121,7 +122,7 @@ public:
                         cin >> pinfl;
 
                         
-                        if (Validator::user_exists_in_govermental_database(pinfl, p_name, p_surname)) {
+                        if (Validator::user_exists_in_govermental_database(pinfl, p_name, p_surname , number)) {
                             cout << "Name: " << p_name << ", Surname: " << p_surname << endl;
                             break;
                         }
@@ -156,13 +157,23 @@ public:
 
                     ofstream file("accounts.txt", ios::app);
 
-                    if (file.is_open()) {
-                        file << pinfl << " " << "_"  << " " << p_name << " " << p_surname << " " << 1 << endl;
+
+                       
+
+
+                    if (Validator::user_exists(pinfl)) {
+
+                        if (file.is_open()) {
+                            file << pinfl << " " << "_" << " " << p_name << " " << p_surname << " " << 1 << endl;
+                        }
+
+                        break;
+
+                    }
                     }
 
-                    break;
-                   
-                }
+
+                    
                 
 
 

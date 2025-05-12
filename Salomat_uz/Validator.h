@@ -108,14 +108,14 @@ public:
 
 
 
-    static bool user_exists_in_govermental_database(const string& PINFL, string& name, string& surname) {
+    static bool user_exists_in_govermental_database(const string& PINFL, string& name, string& surname , string & number) {
         ifstream file("gov_database.txt");
 
-        string stored_pinfl, stored_name, stored_surname;
+        string stored_pinfl, stored_name, stored_surname, stored_number;
         
 
         if (file.is_open()) {
-            while (file >> stored_pinfl >> stored_name >> stored_surname) {
+            while (file >> stored_pinfl >> stored_name >> stored_surname >> stored_number) {
                 if (stored_pinfl == PINFL) {
                     name = stored_name;
                     surname = stored_surname;
@@ -128,7 +128,7 @@ public:
     }
 
 
-
+    
 
 
 

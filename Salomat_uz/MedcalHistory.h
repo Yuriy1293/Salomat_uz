@@ -100,16 +100,25 @@ public:
         }
 
         while (file >> pinfl >> password >> name >> surname >> role) {
-
             if (role == 1) {
-                pinfls[count] = pinfl;
-                names[count] = name;
-                surnames[count] = surname;
-                count++;
+                // Проверка: уже есть такой PINFL?
+                bool already_exists = false;
+                for (int i = 0; i < count; i++) {
+                    if (pinfls[i] == pinfl) {
+                        already_exists = true;
+                        break;
+                    }
+                }
 
+                if (!already_exists) {
+                    pinfls[count] = pinfl;
+                    names[count] = name;
+                    surnames[count] = surname;
+                    count++;
+                }
             }
-
         }
+
 
         if (count == 0) {
             cout << "There is no patients in database" << endl;
