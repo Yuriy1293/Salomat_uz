@@ -57,10 +57,18 @@ public:
 
         string name, surname;
         int role;
-        if (!Validator::pinfl_password_connected(PINFL, password ,name , surname, role)) {
-            cout << "There is no such user with this PINFL or password" << endl;
+        
+        try {
+            if (!Validator::pinfl_password_connected(PINFL, password, name, surname, role)) {
+                cout << "There is no such user with this PINFL or password" << endl;
+                return nullptr;
+            }
+        }
+        catch (const exception& e) {
+            cout << "An error occurred during login: " << e.what() << endl;
             return nullptr;
         }
+
         cout << "Hello, " << name << " " << surname << endl;
 
 
