@@ -1,4 +1,4 @@
-
+п»ї
 #include <iostream>
 #include"header.h"
 #include"registration.h"
@@ -9,9 +9,17 @@ using namespace std;
 int main() {
 
     
-        
-        //указатель на обьект юзера (User* user это как int a , только принимает указатель на обьект )
+    cout << "=============================================\n";
+    cout << "|                                           |\n";
+    cout << "|         Hello! Welcome to our             |\n";
+    cout << "|         Medical Application!              |\n";
+    cout << "|                                           |\n";
+    cout << "=============================================\n" << endl;
+
+        //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЊРµРєС‚ СЋР·РµСЂР° (User* user СЌС‚Рѕ РєР°Рє int a , С‚РѕР»СЊРєРѕ РїСЂРёРЅРёРјР°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЊРµРєС‚ )
     
+
+
         int choice; 
         while (true) {
 
@@ -43,7 +51,7 @@ int main() {
             }
 
             else if (choice == 3) {
-                cout << "Exit" << endl;
+                cout << "\nExit" << endl;
                 break;
             }
 

@@ -17,7 +17,7 @@ using namespace std;
             ifstream file("accounts.txt");
 
             if (!file.is_open()) {
-                cout << "Error with opening file" << endl;
+                cout << "Unexpected error while opening the file" << endl;
                 return false;
             }
 

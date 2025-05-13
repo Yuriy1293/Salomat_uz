@@ -33,10 +33,10 @@ public:
         
         while (true) {
 
-            cout << "Patient menu\n";
-            cout << "\tChoose option:\n";
+            cout << "~\nPatient menu:\n";
+            cout << "=======================   \nChoose an option:\n";
             cout << "1. View medical history\n";
-            cout << "5. Log out\n";
+            cout << "5. Log out\n-----------------------\n";
             cin >> choice;
 
             switch (choice) {
@@ -52,7 +52,7 @@ public:
                 break;
             }
             case 5:
-                cout << "Logging out...\n";
+                cout << "\nLogging out...\n";
                 
                 return;
             default:
@@ -84,18 +84,18 @@ public:
         int choice;
 
         while (true) {
-            cout << "Doctor menu\n";
-            cout << "\tChoose option:\n";
+            cout << "~\nDoctor menu:\n";
+            cout << "====================================   \nChoose option:\n";
             cout << "1. Create medical history\n";
             cout << "2. Show all patients\n";
             cout << "3. Delete patient from patients list\n";
-            cout << "4. Log out\n";
+            cout << "4. Log out\n------------------------------------\n";
             cin >> choice;
 
             switch (choice) {
             case 1: {
                 int choise_2 = -1;
-                cout << "Search patient by: \n1) Show patient's list \n2) Search by PINFL" << endl;
+                cout << "======================\nSearch patient by: \n1) Show patient's list \n2) Search by PINFL\n----------------------" << endl;
                 cin >> choise_2;
 
                 if (choise_2 == 1) {
@@ -148,13 +148,13 @@ public:
             }
 
             case 3: {
-                cout << "\nDo you want to delete a patient from accounts.txt? (yes/no): ";
+                cout << "~\nDo you want to delete a patient from database? (yes/no): ";
                 string answer;
                 cin >> answer;
 
                 if (answer == "yes") {
                     string pinfl_to_delete;
-                    cout << "Enter PINFL of the patient to delete: ";
+                    cout << "Enter the PINFL of the patient to delete: ";
                     cin >> pinfl_to_delete;
                     MedicalHistory::delete_user_by_pinfl(pinfl_to_delete);
                 }

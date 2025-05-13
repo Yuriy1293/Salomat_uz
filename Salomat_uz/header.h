@@ -52,7 +52,7 @@ public:
     }
 
     void registration() override {
-        cout << "Patient registration" << endl;
+        cout << "\tSuccessful patient registration!" << endl;
 
 
     }
@@ -88,7 +88,7 @@ public:
 
 
     void registration() override {
-        cout << "Doctor registration" << endl;
+        cout << "\tSuccessful doctor registration!" << endl;
 
 
     }

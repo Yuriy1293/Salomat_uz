@@ -20,19 +20,19 @@ public:
     User* start() {
 
         int choise;
-        cout << "Autorisation" << endl;
-        cout << "Welcome to our medical application!" << endl;
+        cout << "-----------------------------------\nWelcome to our medical application!" << endl;
+        cout << "Logging in..." << endl;
 
 
         UserFactory* factory = nullptr;
 
 
         while (true) {
-            cout << "Enter your PINFL (12 digits)" << endl;
+            cout << "~\nEnter your PINFL (12 digits)" ;
             cin >> PINFL;
 
             if (!Validator::PINFL_checker(PINFL)) {
-                cout << "Incorrect PINFL format, please try again." << endl;
+                cout << "Incorrect PINFL format, please try again..." << endl;
                 continue;
             }
 
@@ -41,16 +41,16 @@ public:
                 continue;
             }
 
-            cout << "Correct PINFL." << endl;
+            cout << "Correct PINFL!" << endl;
             break;
         }
 
         
         while (true) {
-            cout << "Enter your password" << endl;
+            cout << "~\nEnter your password:";
             cin >> password;
             if (!Validator::password_checher(password)) {
-                cout << "Incorrect password." << endl;
+                cout << "\nIncorrect password, please try again..." << endl;
                 continue; }
             break;
         }
@@ -60,7 +60,7 @@ public:
         
         try {
             if (!Validator::pinfl_password_connected(PINFL, password, name, surname, role)) {
-                cout << "There is no such user with this PINFL or password" << endl;
+                cout << "\nIncorrect PINFL or password, please try again..." << endl;
                 return nullptr;
             }
         }
@@ -69,7 +69,7 @@ public:
             return nullptr;
         }
 
-        cout << "Hello, " << name << " " << surname << endl;
+        cout << "~\n\n\t      Hello, " << name << " " << surname << endl;
 
 
 
@@ -80,7 +80,7 @@ public:
         int found = Validator::get_roles_by_pinfl_password(PINFL, password, name, surname, roles);
 
         if (found == 0) {
-            cout << "There is no such user with this PINFL and password." << endl;
+            cout << "Incorrect PINFL or password, please try again..." << endl;
             return nullptr;
         }
 
@@ -91,7 +91,7 @@ public:
         }
         else {
             // Предложить пользователю выбрать между двумя ролями
-            cout << "Multiple roles found for your account:" << endl;
+            cout << "======================================\nMultiple roles found for your account:" << endl;
             cout << "1) " << (roles[0] == 1 ? "Patient" : "Doctor") << endl;
             cout << "2) " << (roles[1] == 1 ? "Patient" : "Doctor") << endl;
 
@@ -99,12 +99,13 @@ public:
             while (true) {
                 cout << "Choose the role you want to login as: ";
                 cin >> choice;
+                cout << "\n--------------------------------------\n";
                 if (choice == 1 || choice == 2) {
                     role = roles[choice - 1];
                     break;
                 }
                 else {
-                    cout << "Invalid choice. Try again." << endl;
+                    cout << "Invalid choice, please try again..." << endl;
                 }
             }
         }
@@ -159,7 +160,7 @@ public:
     User* start() {
 
         int choise;
-        cout << "Welcome to our medical application!" << endl;
+        cout << "\n~\nWelcome to our medical application!" << endl;
 
 
 
@@ -171,7 +172,7 @@ public:
         
         
         while (true) {
-            cout << "Who you are? \n1)Patient\n2)Doctor" << endl;
+			cout << "=========================================\nChoose your role:\n1) Patient\n2) Doctor\n----------------------------------------" << endl;
             cin >> choise;
             
             // добавить проверку на буквы
@@ -183,17 +184,17 @@ public:
             switch (choise) {
 
             case 1:
-                cout << "Patient option was chosen" << endl;
+                cout << "\n~\nPatient option was chosen..." << endl;
                 factory = new PatientFactory();
                 break;
 
             case 2:
-                cout << "Doctor option was chosen" << endl;
+                cout << "\n~\nDoctor option was chosen..." << endl;
                 factory = new DoctorFactory();
                 break;
 
             default:
-                cout << "There is no such option. Please,choise again" << endl << endl;
+                cout << "\nThere is no such option... \nPlease,choose again~" << endl << endl;
                 continue;
 
             }
@@ -206,16 +207,16 @@ public:
         
 
         while (true) {
-            cout << "Enter your PINFL (12 digits)" << endl;
+            cout << "Enter your PINFL (12 digits):";
             cin >> PINFL;
 
             if (!Validator::PINFL_checker(PINFL)) {
-                cout << "Incorrect PINFL format" << endl;
+                cout << "Invalid PINFL format, please try again..." << endl;
                 continue;
             }
 
             if (!Validator::user_exists_in_govermental_database(PINFL, name, surname , number)) {
-                cout << "This PINFL does not exist in the governmental database\n";
+                cout << "PINFL was not found in database... \nplease try again~\n";
                 continue;
             }
 
@@ -249,7 +250,7 @@ public:
                     break;
                 }
                 else {
-                    cout << "User with this PINFL has already exists. Please , go to autorisation" << endl;
+                    cout << "User with this PINFL already exists, try logging in, please." << endl;
                     return nullptr;
                 }
             }
@@ -264,14 +265,14 @@ public:
             while (true) {
 
                 if (attemps > 3) {
-                    cout << "Number of atemps is limeted > please try again later" << endl;
+                    cout << "Number of atemps is limeted \n please try again later~" << endl;
                     return nullptr;
                 }
-                cout << "Confirmation code was send on number " << number << endl;
-                cout << "Enter confirmation code " << confirmation_code << endl;
+                cout << "Confirmation code was send to your number " << "("<<number<<")" << endl;
+                cout << "Enter confirmation code: "<<"(" << confirmation_code<<")" << endl;
                 cin >> confirmation_code_entered;
                 if (confirmation_code_entered != confirmation_code) {
-                    cout << "Incorrect confirmation code\n Code was sent again" << endl;
+                    cout << "~\nIncorrect confirmation code\n Code was sent again..." << endl;
                     attemps++;
                     continue;
                 }
@@ -281,13 +282,13 @@ public:
 
 
 
-            cout << "Now you need to set up your passwort" << endl;
+            cout << "~ \nNow you need to set up your password..." << endl;
 
             while (true) {
-                cout << "Enter new password" << endl;
+                cout << "Enter new password:";
                 cin >> password;
                 if (Validator::password_checher(password)) {
-                    cout << "Correct password" << endl;
+                    cout << "Correct password!\n~" << endl;
 
                     ofstream file("accounts.txt", ios::app);
 
@@ -298,7 +299,7 @@ public:
                     break;
                 }
                 else {
-                    cout << "Incorrect password, please , try again" << endl;
+                    cout << "~\nInvalid password, please try again..." << endl;
                 }
             }
 

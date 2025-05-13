@@ -124,7 +124,7 @@ public:
             cout << "There is no patients in database" << endl;
         }
 
-        cout << "List of patients:" << endl;
+        cout << "Scanning the database..." << endl;
          
 
         cout << "\nList of patients:\n";
@@ -143,7 +143,7 @@ public:
         int choise; 
         
         while (true) {
-            cout << "Write number in order to choose patient:\n Choice 0 to back on previous page" << endl;
+            cout << "=========================================\nWrite number in order to choose patient:\n Choose 0 to go back to previous page~\n----------------------------------------" << endl;
             cin >> choise;
 
             if (choise == 0) {
@@ -154,7 +154,7 @@ public:
 
 
             if (choise < 0 || choise > count) {
-                cout << "Invalid chose" << endl;
+                cout << "Invalid choise" << endl;
                 continue;
             }
 
@@ -202,7 +202,7 @@ public:
         }
         out.close();
 
-        cout << "User with PINFL " << target_pinfl << " deleted (if existed)." << endl;
+        cout << "...\nUser with PINFL \"" << target_pinfl << "\" was deleted (if existed)." << endl;
     }
 
 
@@ -247,7 +247,7 @@ public:
             return true;
         }
         else {
-            cout << "Error File ne nayden ili ne udalos otkrit." << endl;
+            cout << "Error...\n File not found or not accessible, please try again..." << endl;
             return false;
         }
     }
@@ -281,7 +281,7 @@ public:
             file.close();
         }
         else {
-            cout << "File ne nayden ili ne udalos otkrit." << endl;
+            cout << "Data not found or not accessible~\nPlease, try again..." << endl;
         }
     }
 
